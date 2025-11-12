@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RB CUSTOM DESIGN S.R.L. - Producție de Îmbrăcăminte "Cut and Sew"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1605170425049-335d84033621?q=80&w=1964&auto-format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #d97706; /* amber-600 */
+        }
+        .btn-primary {
+            background-color: #d97706; /* amber-600 */
+            color: #ffffff;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #b45309; /* amber-700 */
+            transform: translateY(-2px);
+        }
+        .card {
+            background-color: #111111;
+            border: 1px solid #333333;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+        }
+        .process-step {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        .process-step:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.25rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 9999px;
+            background-color: #d97706; /* amber-600 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .process-step-1:before { content: '1'; }
+        .process-step-2:before { content: '2'; }
+        .process-step-3:before { content: '3'; }
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 0.6875rem; /* Centrul cercului */
+            top: 2.25rem;
+            bottom: -2.5rem;
+            width: 2px;
+            background-color: #333333; /* Darker gray */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md shadow-lg">
+        <div class="container mx-auto max-w-7xl px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <a href="#" class="text-xl font-bold text-white tracking-tight">
+                    RB CUSTOM DESIGN S.R.L.
+                </a>
+                <div classs="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-100 nav-link">Despre Noi</a>
+                    <a href="#services" class="text-gray-100 nav-link">Servicii</a>
+                    <a href="#advantages" class="text-gray-100 nav-link">Avantaje</a>
+                    <a href="#process" class="text-gray-100 nav-link">Procesul</a>
+                    <button onclick="openModal('contactModal')" class="btn-primary">Contact</button>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="openModal('contactModal')" class="btn-primary px-4 py-2 text-sm">Contact</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Ecranul Principal (Hero) -->
+        <section id="home" class="hero-bg min-h-screen flex items-center justify-center pt-20">
+            <div class="text-center p-6">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-lg leading-tight">
+                    RB CUSTOM DESIGN: Precizie în Producția Textilă
+                </h1>
+                <p class="mt-6 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto drop-shadow-md">
+                    Transformăm viziunea dumneavoastră în articole de îmbrăcăminte de înaltă calitate, de la concept la produsul finit.
+                </p>
+                <div class="mt-12">
+                    <a href="#services" class="btn-primary text-lg">Descoperiți Serviciile</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Despre Noi -->
+        <section id="about" class="py-24 bg-black">
+            <div class="container mx-auto max-w-7xl px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <img src="main3.jpg" alt="Procesul de design vestimentar" class="rounded-lg shadow-2xl w-full h-auto object-cover aspect-square">
+                    </div>
+                    <div class="lg:pl-8">
+                        <h2 class="text-base font-semibold tracking-wider text-amber-500 uppercase">Cine Suntem</h2>
+                        <p class="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-white">
+                            Pasiunea Noastră Pentru Calitate și Inovație
+                        </p>
+                        <p class="mt-8 text-lg text-gray-200 leading-relaxed">
+                            RB CUSTOM DESIGN S.R.L. este un partener de încredere în industria de manufactură a îmbrăcămintei, specializat în servicii complete "Cut and Sew". De la sediul nostru din Crivat, combinăm măiestria tradițională cu tehnologia modernă pentru a produce articole vestimentare excepționale. Echipa noastră este dedicată excelenței, asigurând o atenție meticuloasă la detalii în fiecare etapă a producției. Colaborăm îndeaproape cu branduri emergente și designeri consacrați pentru a aduce la viață conceptele lor creative. Ne mândrim cu flexibilitatea și capacitatea de a ne adapta la cerințe unice, livrând constant produse care depășesc așteptările.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Servicii -->
+        <section id="services" class="py-24">
+            <div class="container mx-auto max-w-7xl px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-base font-semibold tracking-wider text-amber-500 uppercase">Expertiza Noastră</h2>
+                    <p class="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-white">
+                        Servicii Complete de Manufactură
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="card">
+                        <img src="main2.jpg" alt="Mașină de cusut industrială" class="h-48 w-full object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-semibold text-white mb-4">Producție "Cut and Sew"</h3>
+                            <p class="text-gray-200 leading-relaxed">
+                                Oferim un serviciu integral, de la tăierea precisă a materialelor conform tiparelor, până la asamblarea și finisarea profesionistă. Gestionăm întregul proces de cusut, asigurând o calitate constantă și un finisaj premium pentru fiecare articol. Această abordare ne permite să controlăm calitatea la fiecare pas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=2073&auto=format&fit=crop" alt="Schițe de modă și mostre de material" class="h-48 w-full object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-semibold text-white mb-4">Dezvoltare de Prototipuri</h3>
+                            <p class="text-gray-200 leading-relaxed">
+                                Transformăm schițele și ideile în prototipuri tangibile, gata de producție. Echipa noastră lucrează alături de dumneavoastră pentru a perfecționa tiparele, a selecta materialele potrivite și a crea mostre de referință. Acest pas este crucial pentru a valida designul înainte de a intra în producția de serie.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="main1.jpg" alt="Role de material textil" class="h-48 w-full object-cover">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-semibold text-white mb-4">Aprovizionare și Logistică</h3>
+                            <p class="text-gray-200 leading-relaxed">
+                                Optimizăm lanțul de aprovizionare prin identificarea și procurarea materialelor de cea mai bună calitate la prețuri competitive. Ne ocupăm de logistica complexă a materialelor textile, permițându-vă să vă concentrați pe design și marketing. Asigurăm un flux constant și eficient al resurselor necesare.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Avantaje -->
+        <section id="advantages" class="py-24 bg-black">
+            <div class="container mx-auto max-w-7xl px-6">
+                <div class="lg:text-center mb-16">
+                    <h2 class="text-base font-semibold tracking-wider text-amber-500 uppercase">De Ce Noi?</h2>
+                    <p class="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-white">
+                        Parteneriatul Cu Noi Înseamnă Valoare Adăugată
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Calitate Fără Compromis</h3>
+                        <p class="text-gray-200 leading-relaxed">
+                            Fiecare cusătură este executată cu precizie. Implementăm un control al calității riguros în multiple etape pentru a garanta că fiecare produs finit respectă cele mai înalte standarde internaționale.
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Flexibilitate și Scalabilitate</h3>
+                        <p class="text-gray-200 leading-relaxed">
+                            Suntem echipați pentru a gestiona atât comenzi de volum redus, pentru colecții capsulă sau startup-uri, cât și producții de serie mare pentru branduri consacrate, adaptându-ne rapid cerințelor pieței.
+                        </p>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-3">Transparență Totală</h3>
+                        <p class="text-gray-200 leading-relaxed">
+                            Credem într-o comunicare deschisă și onestă. Veți fi informat constant despre stadiul producției și veți avea un partener de dialog dedicat pe toată durata colaborării noastre.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Procesul de Lucru -->
+        <section id="process" class="py-24">
+            <div class="container mx-auto max-w-7xl px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-base font-semibold tracking-wider text-amber-500 uppercase">Metodologia Noastră</h2>
+                    <p class="mt-2 text-3xl md:text-4xl font-bold tracking-tight text-white">
+                        De la Idee la Produsul Finit
+                    </p>
+                </div>
+                <div class="max-w-2xl mx-auto space-y-10">
+                    <div class="process-step process-step-1">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Concept și Prototipare</h3>
+                        <p class="text-gray-200 leading-relaxed">
+                            Începem cu o consultare aprofundată pentru a înțelege viziunea dumneavoastră. Continuăm cu crearea tiparelor digitale, selectarea materialelor și dezvoltarea primului prototip pentru validare și ajustări.
+                        </p>
+                    </div>
+                    <div class="process-step process-step-2">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Producția de Serie</h3>
+                        <p class="text-gray-200 leading-relaxed">
+                            După aprobarea eșantionului final, trecem la etapa de producție. Aceasta include tăierea computerizată a materialelor ("Cut") și asamblarea meticuloasă ("Sew") de către tehnicienii noștri experimentați, cu verificări de calitate intermediare.
+                        </p>
+                    </div>
+                    <div class="process-step process-step-3">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Inspecție Finală și Livrare</h3>
+                        <p class="text-gray-200 leading-relaxed">
+                            Fiecare articol este supus unei inspecții finale riguroase pentru a asigura conformitatea totală cu standardele stabilite. Ulterior, produsele sunt ambalate cu grijă și pregătite pentru expediere conform programului agreat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CTA pentru Contact -->
+        <section id="contact-cta" class="py-24 bg-black">
+            <div class="container mx-auto max-w-4xl px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white">
+                    Sunteți Gata Să Începeți Proiectul?
+                </h2>
+                <p class="mt-6 text-lg text-gray-200 leading-relaxed">
+                    Echipa noastră este pregătită să discute cerințele dumneavoastră. Contactați-ne astăzi pentru o ofertă personalizată și pentru a afla cum putem transforma ideile dumneavoastră în realitate.
+                </p>
+                <div class="mt-10">
+                    <button onclick="openModal('contactModal')" class="btn-primary text-lg">Solicitați o Consultanță</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 7. Footer (Contacte) -->
+    <footer class="py-16 bg-black border-t border-gray-900">
+        <div class="container mx-auto max-w-7xl px-6 text-center text-gray-300">
+            <h4 class="text-xl font-semibold text-white mb-4">RB CUSTOM DESIGN S.R.L.</h4>
+            <p class="mb-2">
+                COM. CRIVAT, INT. LIBERTATII NR.1 CAMERA 1 915103 Crivat
+            </p>
+            <p class="mb-8">
+                <a href="mailto:info@myfoodcomidasaudavel.pro" class="hover:text-amber-500 transition-colors">info@myfoodcomidasaudavel.pro</a>
+            </p>
+            <p class="text-sm text-gray-400">
+                &copy; <span id="currentYear"></span> RB CUSTOM DESIGN S.R.L. Toate drepturile rezervate.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal Formular Contact -->
+    <div id="contactModal" class="modal fixed inset-0 z-50 flex items-center justify-center p-6 bg-black bg-opacity-80 opacity-0 invisible" onclick="closeModal('contactModal')">
+        <div class="modal-content bg-gray-950 w-full max-w-lg rounded-xl shadow-2xl p-8 transform scale-95" onclick="event.stopPropagation()">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-semibold text-white">Contactați-ne</h3>
+                <button onclick="closeModal('contactModal')" class="text-gray-400 hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div class="space-y-5">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-200 mb-2">Nume</label>
+                        <input type="text" id="name" name="name" required class="w-full p-3 rounded-lg bg-gray-900 border border-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-200 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full p-3 rounded-lg bg-gray-900 border border-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+                    <div>
+                        <label for="company" class="block text-sm font-medium text-gray-200 mb-2">Numele Companiei (Opțional)</label>
+                        <input type="text" id="company" name="company" class="w-full p-3 rounded-lg bg-gray-900 border border-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-200 mb-2">Mesajul Dvs.</label>
+                        <textarea id="message" name="message" rows="5" required class="w-full p-3 rounded-lg bg-gray-900 border border-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full btn-primary text-lg">Trimite Mesajul</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Succes -->
+    <div id="successModal" class="modal fixed inset-0 z-50 flex items-center justify-center p-6 bg-black bg-opacity-80 opacity-0 invisible" onclick="closeModal('successModal')">
+        <div class="modal-content bg-gray-950 w-full max-w-md rounded-xl shadow-2xl p-8 transform scale-95 text-center" onclick="event.stopPropagation()">
+            <div class="w-16 h-16 rounded-full bg-green-600 flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+            </div>
+            <h3 class="text-2xl font-semibold text-white mb-3">Mulțumim!</h3>
+            <p class="text-gray-200 mb-6">
+                Mesajul dumneavoastră a fost trimis cu succes. Vă vom contacta în cel mai scurt timp.
+            </p>
+            <button onclick="closeModal('successModal')" class="btn-primary">Închide</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('invisible', 'opacity-0');
+            modal.querySelector('.modal-content').classList.remove('scale-95');
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('opacity-0');
+            modal.querySelector('.modal-content').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('invisible');
+            }, 300);
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            closeModal('contactModal');
+            
+            setTimeout(() => {
+                openModal('successModal');
+            }, 350);
+            
+            document.getElementById('contactForm').reset();
+        }
+        
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeModal('contactModal');
+                closeModal('successModal');
+            }
+        });
+    </script>
+</body>
+</html>
